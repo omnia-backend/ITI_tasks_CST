@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Processing</title>
+</head>
+<body>
+
+  <h2>JavaScript task2 </h2>
+
+  <script>
+    var userInput = prompt("Enter a string:");
+
+    if (!userInput || userInput.trim() === "") {
+      alert("Invalid input! Please enter a non-empty string.");
+    } else {
+
+      function capitalizeWords(str) {
+        var words = str.split(" ");
+        for (var i = 0; i < words.length; i++) {
+          var word = words[i];
+          words[i] = word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }
+        return words.join(" ");
+      }
+
+      var capitalized = capitalizeWords(userInput);
+      console.log("Capitalized String:", capitalized);
+
+      function findLongestWord(str) {
+        var words = str.split(" ");
+        var longest = words[0];
+        for (var i = 1; i < words.length; i++) {
+          if (words[i].length > longest.length) {
+            longest = words[i];
+          }
+        }
+        return longest;
+      }
+
+      var longestWord = findLongestWord(capitalized);
+      console.log("Longest Word:", longestWord);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>A simple C program</title>
+</head>
+<body>
+
+<h3>A simple C program:</h3>
+
+<p>#include &lt;stdio.h&gt;<br>
+#include &lt;conio.h&gt;<br>
+int exp(int base , &nbsp;int power)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(power==0)&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;power--;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return base*exp(base,power);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br><br>
+
+main()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int x=2&nbsp; ,&nbsp; y=3 ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;clrscr();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;printf("\n&nbsp; %d &nbsp;^&nbsp; %d &nbsp;=&nbsp; %d",x,y,exp(x,y));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;getch(); return 0;<br>
+}<br>
+</p>
+
+<p> Using the pre element </p>
+</body>
+</html>

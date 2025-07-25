@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript task1 </title>
+</head>
+<body>
+  <h2>JavaScript task1 </h2>
+
+  <script>
+    var numbers = [3, 1, 2, 4, 3, 5, 1];
+
+    function getUnique(arr) {
+      var result = [];
+      for (var i = 0; i < arr.length; i++) {
+        if (result.indexOf(arr[i]) === -1) {
+          result.push(arr[i]);
+        }
+      }
+      return result;
+    }
+
+    var uniqueNumbers = getUnique(numbers);
+    console.log("Unique:", uniqueNumbers);
+
+    var sortedNumbers = uniqueNumbers.slice().sort(function(a, b) {
+      return a - b;
+    });
+    console.log("Sorted:", sortedNumbers);
+
+    function filterGreaterThan50(arr) {
+      var result = [];
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] <= 50) {
+          result.push(arr[i]);
+        }
+      }
+      return result;
+    }
+
+    console.log("Filtered (user function):", filterGreaterThan50(sortedNumbers));
+
+    var filtered = sortedNumbers.filter(function(num) {
+      return num <= 50;
+    });
+    console.log("Filtered (filter fn):", filtered);
+
+    function findMinMax(arr) {
+      var min = arr[0];
+      var max = arr[0];
+      for (var i = 1; i < arr.length; i++) {
+        if (arr[i] < min) min = arr[i];
+        if (arr[i] > max) max = arr[i];
+      }
+      return { min: min, max: max };
+    }
+
+    console.log("Min/Max (user function):", findMinMax(filtered));
+
+    var min = Math.min.apply(null, filtered);
+    var max = Math.max.apply(null, filtered);
+    console.log("Min/Max (Math):", { min: min, max: max });
+
+    function sumAll(arr) {
+      var sum = eval(arr.join('+'));
+      var product = eval(arr.join('*'));
+      return { sum: sum, product: product };
+    }
+
+    console.log("sumAll([3,1,4,5,2]):", sumAll([3, 1, 4, 5, 2]));
+
+    function sumAllArgs() {
+      var args = Array.prototype.slice.call(arguments);
+      var sum = eval(args.join('+'));
+      var product = eval(args.join('*'));
+      return { sum: sum, product: product };
+    }
+
+    console.log("sumAllArgs(3,1,4,5,2):", sumAllArgs(3, 1, 4, 5, 2));
+
+    function getRandomArray() {
+      var available = [1,2,3,4,5,6,7,8,9,10];
+      var result = [];
+
+      for (var i = 0; i < 8; i++) {
+        var index = Math.floor(Math.random() * available.length);
+        result.push(available[index]);
+        available.splice(index, 1);
+      }
+
+      return result;
+    }
+
+    console.log("Random unique array:", getRandomArray());
+  </script>
+</body>
+</html>
