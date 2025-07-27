@@ -1,48 +1,26 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title> Task 1 </title>
-<style>
-  #popup {
-    font-size: 20px;
-    color: black;
-    display: inline-block;
-    margin: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background: #f9f9f9;
-    border-radius: 5px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>LAB 3</title>
 </head>
 <body>
 
-<div id="popup"></div>
-
 <script>
-(function () {
-  var text = "welcome to js";
-  var popup = document.getElementById("popup");
+  const message = "Welcome to JS";
   var i = 0;
+       newwin = open("UserDefined Object.html", "child", "width=300,height=250")
 
-  function typeLetter() {
-    if (i < text.length) {
-      popup.innerHTML += text.charAt(i);
+  if (newwin) { newwin.document.write("<body><pre id='msg'></pre></body>");
+
+    const interval = setInterval(() => {
+      newwin.document.getElementById("msg").textContent += message[i];
       i++;
-      setTimeout(typeLetter, 500); 
-    } else {
-      setTimeout(function(){
-        popup.style.display = 'none';
-      }, 1000);
-    }
-  }
 
-  window.onload = function() {
-    typeLetter();
-  };
-})();
+      if (i === message.length) {
+        clearInterval(interval);
+        setTimeout(() => {newwin.close();}, 1000); }}, 1000); } 
 </script>
 
 </body>
