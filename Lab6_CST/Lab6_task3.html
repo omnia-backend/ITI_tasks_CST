@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Task3 </title>
+  <style>
+    body {
+      margin-left: 10px;
+      font-family: Arial, sans-serif;
+    }
+
+    .outer-box {
+      border: 3px solid red;
+      padding: 2px;
+      margin: 5px 0;
+      width: fit-content;
+    }
+
+    .inner-box {
+      border: 2px solid red;
+      padding: 3px 5px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container"></div>
+
+  <script>
+    var container = document.getElementById("container");
+    var i = 1;
+    var limit = 25;
+
+    function showNumber() {
+      if (i <= limit) {
+        var outer = document.createElement("div");
+        outer.className = "outer-box";
+
+        var inner = document.createElement("div");
+        inner.className = "inner-box";
+        inner.innerHTML = i;
+
+        outer.appendChild(inner);
+        container.appendChild(outer);
+
+        i++;
+        setTimeout(showNumber, 1000); 
+      }
+    }
+
+    showNumber();
+  </script>
+
+</body>
+</html>
